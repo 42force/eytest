@@ -73,8 +73,8 @@ class Visual(Frame):
          
         x,y = self.trans.screen(time//2,1.2)
         x1,y1 = self.trans.screen(time//2,1.13)
-        self._graph.create_text(x,y,  text = "% Happy", fill = "green",font = "bold 12")
-        self._graph.create_text(x1,y1,  text = "% Unhappy", fill = "red",font = "bold 12")
+        self._graph.create_text(x,y,  text = "% Happy", fill = "yellow",font = "bold 12")
+        self._graph.create_text(x1,y1,  text = "% Unhappy", fill = "blue",font = "bold 12")
  
         # Line x-axis  
         x, y  = self.trans.screen((-5*(time/100)),-0.05)  
@@ -276,14 +276,14 @@ class Visual(Frame):
                 x0 = self.tick_counter-1
                 x1 = self.tick_counter
  
-                # Collecting values from stored data
+                # Collecting values from stoblue data
                 y0 = self.data[self.tick_counter-1][1]
                 y1 = self.data[self.tick_counter][1]
  
                 # Transforming to tkinter
                 x1, y1 = self.trans.screen(x1, y1)
                 x0,y0 = self.trans.screen(x0,y0)
-                self._graph.create_line(x0, y0, x1, y1 ,fill = "green", width=1.3, tag = "happy") # Draw "happy lines
+                self._graph.create_line(x0, y0, x1, y1 ,fill = "yellow", width=1.3, tag = "happy") # Draw "happy lines
                  
                 # UNHAPPY values (%)
                 x0 = self.tick_counter-1
@@ -296,7 +296,7 @@ class Visual(Frame):
                 # Transforming to tkinter
                 x1, y1 = self.trans.screen(x1, y1)
                 x0,y0 = self.trans.screen(x0,y0)
-                self._graph.create_line(x0,y0, x1, y1 ,fill = "red", width=1.1, tag = "unhappy") # Draw unhappy lines                  
+                self._graph.create_line(x0,y0, x1, y1 ,fill = "blue", width=1.1, tag = "unhappy") # Draw unhappy lines                  
              
             if prop_happy < 1:                
                 self.turtle_move(turtles_unhappy)                            
@@ -381,9 +381,9 @@ class Visual(Frame):
                              
                 s = "S"+str(counter)
                 if counter <= int(self.N/2):
-                    color = "green"
+                    color = "yellow"
                 else:
-                    color = "red"
+                    color = "blue"
                  
                 x = random.randint(0, self.grid_size-1)
                 y = random.randint(0, self.grid_size-1)
